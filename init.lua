@@ -1,6 +1,9 @@
 -- Bootstrap lazy.nvim
 vim.opt.rtp:prepend("~/.config/nvim/lazy/lazy.nvim")
 vim.g.mapleader = " "
+
+require("vikash.lsp")
+
 require("lazy").setup({
   -- Colorscheme
   { "catppuccin/nvim", name = "catppuccin" },
@@ -49,9 +52,6 @@ vim.cmd.colorscheme("catppuccin")
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
 
--- Setup LSP (example for Python)
-require("lspconfig").pyright.setup({})
-require("lspconfig").clangd.setup({})
 -- Setup cmp
 local cmp = require("cmp")
 cmp.setup({
